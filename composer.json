@@ -1,0 +1,27 @@
+{
+    "name": "codelinered/pdf-image",
+    "description": "Converts uploaded images to PDF and can merge 2 PDF files to 1.",
+    "version": "1.0.0-dev",
+    "keywords": ["zend", "pdf", "image", "convert", "merge"],
+    "homepage": "https://github.com/CodelineRed/pdf-image",
+    "license": "MIT",
+    "type": "project",
+    "authors": [
+        {
+            "name": "CodelineRed",
+            "email": "software@codelinered.net",
+            "homepage": "https://www.codelinered.net"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "5.5 - 7.1",
+        "ext-gd": "*"
+    },
+    "config": {
+        "process-timeout": 0,
+        "platform": {
+            "php": "7.1.33"
+        }
+    }
+}
