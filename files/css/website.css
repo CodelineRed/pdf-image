@@ -72,11 +72,24 @@ input[type="submit"]:disabled {
     font-weight: bold;
 }
 
-dl{ /* Inputfields */
-    margin-left: -40px;
+dl{ /* Form */
+    margin-left: 0;
+}
+
+dd{ /* Inputfields */
+    margin-left: 0;
+    margin-bottom: 15px;
+}
+
+dd#add-element {
+    margin-bottom: 0;
 }
 
 dt{ /* Label */
-    margin-left: 40px;
+    margin-left: 0;
+}
+
+dt#send-label {
+    display: none;
 }
 /* Zend_Form END*/

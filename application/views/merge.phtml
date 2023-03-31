@@ -1,8 +1,10 @@
 <h2>Merge PDFs</h2>
-Here you can combine 2 PDFs into one.<br />
-All data that is uploaded will be deleted immediately after processing.<br />
-Each PDF can be a maximum of 256MB in size.<br />
-The file format PDF is permitted.<br />
+<p>
+    Here you can combine 2 PDFs into one.<br />
+    All data that is uploaded will be deleted immediately after processing.<br />
+    All PDF files together may reach a maximum of <?php echo ini_get('upload_max_filesize'); ?>B.<br />
+    The file format PDF is permitted.
+</p>
 <?php
 echo $pdfForm;
 if (isset($dateKey)) {

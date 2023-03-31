@@ -41,11 +41,12 @@ class Bootstrap {
         $handle =  opendir($path);
         while ($file = readdir($handle)) {
             if ($file != "." && $file != "..") {
-                if (is_dir($path . $file)) { // Wenn Verzeichniseintrag ein Verzeichnis ist
-                    // Erneuter Funktionsaufruf, um das aktuelle Verzeichnis auszulesen
+                // If directory entry is a directory
+                if (is_dir($path . $file)) {
+                    // Another function call to read the current directory
                     self::loadClassesRekursiv($path . $file . '/');
                 } else { 
-                    // Wenn Verzeichnis-Eintrag eine Datei ist, diese ausgeben
+                    // If directory-entry is a file, print it
                     require_once $path . $file;
                 }
             }
