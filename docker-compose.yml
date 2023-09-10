@@ -10,18 +10,18 @@ services:
     # http://localhost:7708
     # docker exec -ti pdf-image php --version
     webserver:
-        # image: php:7.1-alpine
+        # image: php:8.2-alpine
         # restart: always
         container_name: pdf-image
         working_dir: /var/www
-        command: php -S 0.0.0.0:8080 -t .
+        command: php -S 0.0.0.0:80 -t .
         environment:
             docker: "true"
         build:
             context: ./
             dockerfile: Dockerfile
         ports:
-            - 7708:8080
+            - 7708:80
         volumes:
             - .:/var/www
             - logs:/var/www/logs

@@ -1,4 +1,5 @@
 <?php
+require_once 'constant.php';
 function formatFilesize($bytes, $decimals = 0, $decimalPoint = '.', $thousandsSeparator = ',', $unit = '') {
     $B = 1;
     $KB = 1024;
@@ -27,22 +28,35 @@ function formatFilesize($bytes, $decimals = 0, $decimalPoint = '.', $thousandsSe
     return number_format(intval($bytes) / $$unit, $decimals, $decimalPoint, $thousandsSeparator) . ' ' . $unit;
 }
 
+$files = [];
+$pdfFiles = glob('./files/pdf/**/*.pdf');
+$pngFiles = glob('./files/pdf/**/*.png');
 
-$files = glob('./files/pdf/**/*.pdf');
+if (is_array($pdfFiles) && is_array($pngFiles)) {
+    $files = array_merge($pdfFiles, $pngFiles);
+} else if (is_array($pdfFiles)) {
+    $files = $pdfFiles;
+} else if (is_array($pngFiles)) {
+    $files = $pngFiles;
+}
+
+$countFiles = is_array($files) ? count($files) : 0;
 $deleted = 0;
-foreach ($files as $filename) {
-    if (file_exists($filename)) {
-        echo $filename . ' (' . formatFilesize(filesize($filename), 2) . ')<br>';
-    }
+if ($countFiles) {
+    foreach ($files as $filename) {
+        if (file_exists($filename && !PROD)) {
+            echo $filename . ' (' . formatFilesize(filesize($filename), 2) . ')<br>';
+        }
 
-    if (unlink($filename)) {
-        $deleted++;
+        if (unlink($filename)) {
+            $deleted++;
+        }
     }
 }
 
-echo count($files) ? '<br>' : '';
+echo $countFiles ? '<br>' : '';
 echo 'Wipe completed!</br>';
-echo 'Found ' . count($files) . ' files</br>';
+echo 'Found ' . $countFiles . ' files</br>';
 echo 'Deleted ' . $deleted . ' files</br>';
 
 echo '<style>body{background-color:black;color:white;}</style>';

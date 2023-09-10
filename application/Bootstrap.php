@@ -25,7 +25,10 @@ class Bootstrap {
         require_once 'Zend/Form.php';
         require_once 'Zend/View.php';
         require_once 'Zend/Pdf.php';
+        require_once 'Zend/Validate/Callback.php';
         require_once 'Zend/Validate/File/Extension.php';
+        require_once 'Zend/Validate/File/Upload.php';
+        require_once 'Zend/Validate/Regex.php';
 
         self::loadClassesRekursiv('Zend/Form/Element/');
         self::loadClassesRekursiv('application/forms/');

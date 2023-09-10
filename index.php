@@ -1,4 +1,5 @@
 <?php
+require_once 'constant.php';
 require_once 'application/Bootstrap.php';
 Bootstrap::initApplication();
 $page = Bootstrap::getParam();

@@ -896,18 +896,20 @@ class Zend_Form implements Iterator, Countable, Zend_Validate_Interface
 
         $id = $this->getFullyQualifiedName();
 
-        // Bail early if no array notation detected
-        if (!strstr($id, '[')) {
-            return $id;
-        }
+        if (is_string($id)) {
+            // Bail early if no array notation detected
+            if (!str_contains($id, '[')) {
+                return $id;
+            }
 
-        // Strip array notation
-        if ('[]' == substr($id, -2)) {
-            $id = substr($id, 0, strlen($id) - 2);
+            // Strip array notation
+            if (str_ends_with($id, '[]')) {
+                $id = substr($id, 0, strlen($id) - 2);
+            }
+            $id = str_replace('][', '-', $id);
+            $id = str_replace(array(']', '['), '-', $id);
+            $id = trim($id, '-');
         }
-        $id = str_replace('][', '-', $id);
-        $id = str_replace(array(']', '['), '-', $id);
-        $id = trim($id, '-');
 
         return $id;
     }
@@ -1148,7 +1150,7 @@ class Zend_Form implements Iterator, Countable, Zend_Validate_Interface
                 } else {
                     switch ($argc) {
                         case 0:
-                            continue;
+                            break;
                         case (1 <= $argc):
                             $type = array_shift($spec);
                         case (2 <= $argc):
@@ -1653,7 +1655,7 @@ class Zend_Form implements Iterator, Countable, Zend_Validate_Interface
                 $order = null;
                 switch ($argc) {
                     case 0:
-                        continue;
+                        break;
                     case (1 <= $argc):
                         $subForm = array_shift($spec);
                     case (2 <= $argc):
@@ -3179,7 +3181,7 @@ class Zend_Form implements Iterator, Countable, Zend_Validate_Interface
      *
      * @return Zend_Form_Element|Zend_Form_DisplayGroup|Zend_Form
      */
-    public function current()
+    public function current(): mixed
     {
         $this->_sort();
         current($this->_order);
@@ -3202,7 +3204,7 @@ class Zend_Form implements Iterator, Countable, Zend_Validate_Interface
      *
      * @return string
      */
-    public function key()
+    public function key(): mixed
     {
         $this->_sort();
         return key($this->_order);
@@ -3213,7 +3215,7 @@ class Zend_Form implements Iterator, Countable, Zend_Validate_Interface
      *
      * @return void
      */
-    public function next()
+    public function next(): void
     {
         $this->_sort();
         next($this->_order);
@@ -3224,7 +3226,7 @@ class Zend_Form implements Iterator, Countable, Zend_Validate_Interface
      *
      * @return void
      */
-    public function rewind()
+    public function rewind(): void
     {
         $this->_sort();
         reset($this->_order);
@@ -3235,7 +3237,7 @@ class Zend_Form implements Iterator, Countable, Zend_Validate_Interface
      *
      * @return bool
      */
-    public function valid()
+    public function valid(): bool
     {
         $this->_sort();
         return (current($this->_order) !== false);
@@ -3246,7 +3248,7 @@ class Zend_Form implements Iterator, Countable, Zend_Validate_Interface
      *
      * @return int
      */
-    public function count()
+    public function count(): int
     {
         return count($this->_order);
     }

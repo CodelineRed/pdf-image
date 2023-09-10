@@ -43,6 +43,7 @@ require_once 'Zend/Form/Decorator/Abstract.php';
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Label.php 23960 2011-05-03 10:58:52Z yoshida@zend.co.jp $
  */
+#[AllowDynamicProperties]
 class Zend_Form_Decorator_Label extends Zend_Form_Decorator_Abstract
 {
     /**

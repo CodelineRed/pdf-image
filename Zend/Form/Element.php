@@ -40,6 +40,7 @@ require_once 'Zend/Validate/Abstract.php';
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id: Element.php 24428 2011-09-02 14:10:03Z matthew $
  */
+#[AllowDynamicProperties]
 class Zend_Form_Element implements Zend_Validate_Interface
 {
     /**

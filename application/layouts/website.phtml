@@ -21,8 +21,9 @@ $baseHref = isset($_ENV['docker']) && $_ENV['docker'] ? 'http://localhost:7708/'
             </div>
             <div class="menu">
                 <a href="/" target="_self">Home</a><br />
-                <a href="/create/" target="_self">Create PDF</a><br />
-                <a href="/merge/" target="_self">Merge PDF</a><br /><br />
+                <a href="/create/" target="_self">Image to PDF</a><br />
+                <a href="/merge/" target="_self">PDF to PDF</a><br />
+                <a href="/image/" target="_self">PDF to Image</a><br /><br />
                 <a href="/wipe.php" target="_blank">Delete Files</a><br />
             </div>
             <div class="content">
@@ -34,6 +35,7 @@ $baseHref = isset($_ENV['docker']) && $_ENV['docker'] ? 'http://localhost:7708/'
                     }
                 ?>
             </div>
+            <div style="clear:both"></div>
         </div>
     </body>
 </html>

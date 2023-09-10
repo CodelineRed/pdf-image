@@ -30,6 +30,7 @@ require_once 'Zend/Validate/Abstract.php';
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
+#[AllowDynamicProperties]
 class Zend_Validate_InArray extends Zend_Validate_Abstract
 {
     const NOT_IN_ARRAY = 'notInArray';

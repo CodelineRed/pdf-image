@@ -8,11 +8,15 @@ h2 {
     margin-top: 0px;
 }
 
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
 .website {
     width: 850px;
-    margin: auto;
+    margin: 50px auto;
     font-size: 12px;
-    margin-top: 50px;
 }
 
 .headline {

@@ -1,0 +1,25 @@
+<h2>PDF to Image</h2>
+<p>
+    Here you can convert a PDF to images.<br />
+    All data that is uploaded will be deleted immediately after processing.<br />
+    The file format PDF is permitted.
+    <?php echo PROD ? "<br />Max 5 Pages at the same time" : ''; ?>
+</p>
+<?php
+echo $pdfForm;
+
+if (is_array($errors) && count($errors)) {
+    foreach ($errors as $error) {
+        echo '<div class="errors" style="margin-left: 0;">' . $error . '</div>';
+    }
+    echo '<br/>';
+}
+
+if (isset($dateKey)) {
+    for ($i=0; $i<$images; $i++) {
+?>
+<a class="download" href="<?php echo '/files/pdf/image/' . $inputFileName . '_' . $dateKey . '-' . $i . '.png';?>" target="_blank">>>> Your Image <?= ($i+1) ?> <<<</a><br/>
+<?php
+    }
+}
+?>

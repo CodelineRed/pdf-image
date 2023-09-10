@@ -1,7 +1,16 @@
 RewriteEngine on
 
-# For some web hosts the next line has to be activated 
+# For some web hosts the next line has to be activated
 # RewriteBase /
+RewriteRule /?\.gitignore$ - [F,L]
+RewriteRule /?\.htaccess$ - [F,L]
+RewriteRule /?CHANGELOG\.md$ - [F,L]
+RewriteRule /?composer\.json$ - [F,L]
+RewriteRule /?composer\.lock$ - [F,L]
+RewriteRule /?constant\.php$ - [F,L]
+RewriteRule /?docker-compose\.yml$ - [F,L]
+RewriteRule /?Dockerfile$ - [F,L]
+RewriteRule /?README\.md$ - [F,L]
 
 # Redirect HTTP to HTTPS if host is codelinered.net
 RewriteCond %{HTTPS} off
