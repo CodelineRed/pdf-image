@@ -1,7 +1,7 @@
 {
     "name": "codelinered/pdf-image",
     "description": "Converts uploaded images to PDF, merges 2 PDF files to 1 or converts PDF to image.",
-    "version": "1.2.0-dev",
+    "version": "1.2.0",
     "keywords": ["zend", "pdf", "image", "convert", "merge", "create"],
     "homepage": "https://github.com/CodelineRed/pdf-image",
     "license": "MIT",
