@@ -1,8 +1,8 @@
 {
     "name": "codelinered/pdf-image",
-    "description": "Converts uploaded images to PDF, merges 2 PDF files to 1 or converts PDF to image.",
-    "version": "1.2.0",
-    "keywords": ["zend", "pdf", "image", "convert", "merge", "create"],
+    "description": "Converts uploaded images to PDF, merges 2 PDF files to 1 or converts PDF to image",
+    "version": "2.0.0-dev",
+    "keywords": ["tcpdf", "symfony", "pdf", "image", "convert", "merge", "create"],
     "homepage": "https://github.com/CodelineRed/pdf-image",
     "license": "MIT",
     "type": "project",
@@ -14,9 +14,26 @@
         }
     ],
     "require": {
-        "php": "^8.0",
+        "php": "^8.2",
         "ext-gd": "*",
-        "ext-imagick": "*"
+        "setasign/fpdi": "^2.6",
+        "symfony/config": "^7.1",
+        "symfony/form": "^7.1",
+        "symfony/http-foundation": "^7.1",
+        "symfony/mime": "^7.1",
+        "symfony/security-csrf": "^7.1",
+        "symfony/translation": "^7.1",
+        "symfony/validator": "^7.1",
+        "tecnickcom/tcpdf": "^6.7"
+    },
+    "suggest": {
+        "ext-imagick": "Enables you to use the 'PDF to Image' converter",
+        "ext-zip": "Enables you to use the 'PDF to Image' converter"
+    },
+    "autoload": {
+        "psr-4": {
+            "PdfImage\\": "src/"
+        }
     },
     "config": {
         "process-timeout": 0,

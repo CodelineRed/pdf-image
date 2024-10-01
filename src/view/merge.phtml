@@ -1,0 +1,11 @@
+<?php use PdfImage\Utility; ?>
+
+<div class="row">
+    <div class="col-12 col-lg-6">
+        <?= $piBs->trans('page-merge'); ?>
+    </div>
+    <div class="col-12 col-lg-6">
+        <?= Utility::renderForm($form); ?>
+        <?= count($form->getErrors(true)) ? $piBs->trans('merge-error') : ''; ?>
+    </div>
+</div>

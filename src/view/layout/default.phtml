@@ -1,0 +1,168 @@
+<?php
+use PdfImage\Utility;
+
+$baseHref = ($_SERVER['SERVER_PORT'] == '443' ? 'https' : 'http') . '://' . $_SERVER['SERVER_NAME'] . str_replace('index.php', '', $_SERVER['PHP_SELF']);
+$baseHref = isset($_ENV['docker']) && $_ENV['docker'] ? 'http://localhost:7708/' : $baseHref;
+?>
+<html data-bs-theme="dark">
+    <head>
+        <script>
+            // setCookie('name', 'value', exdays);
+            // getCookie('name');
+            function setCookie(e,t,n){var o=new Date;o.setTime(o.getTime()+24*n*60*60*1e3);var i="expires="+o.toUTCString();document.cookie=e+"="+t+";"+i+";path=/"}
+            function getCookie(e){for(var t=e+"=",n=decodeURIComponent(document.cookie).split(";"),o=0;o<n.length;o++){for(var i=n[o];" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(t))return i.substring(t.length,i.length)}return""}
+        </script>
+
+        <base href="/" />
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css?v=5.3.3" />
+        <link rel="stylesheet" type="text/css" href="/css/styles.css?v=2.0.0-dev" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+        <meta name="keywords" lang="de" content="bild zu pdf, bild wandler, pdf ersteller, pdf vereinen" />
+        <meta name="keywords" lang="en" content="image to pdf, image converter, pdf creater, pdf merge" />
+        <meta name="keywords" lang="en-us" content="image to pdf, image converter, pdf creater, pdf merge" />
+        <!-- Favicons -->
+        <link rel="icon" type="image/x-icon" href="/img/favicons/favicon.ico">
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="/img/favicons/favicon-48x48.png">
+        <link rel="manifest" href="/img/favicons/manifest.webmanifest">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="theme-color" content="#000">
+        <meta name="application-name" content="PDF Image">
+        <link rel="apple-touch-icon" sizes="57x57" href="/img/favicons/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/img/favicons/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/img/favicons/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/img/favicons/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/img/favicons/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/img/favicons/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/img/favicons/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/img/favicons/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="167x167" href="/img/favicons/apple-touch-icon-167x167.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon-180x180.png">
+        <link rel="apple-touch-icon" sizes="1024x1024" href="/img/favicons/apple-touch-icon-1024x1024.png">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="apple-mobile-web-app-title" content="PDF Image">
+        <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/img/favicons/apple-touch-startup-image-640x1136.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="/img/favicons/apple-touch-startup-image-1136x640.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/img/favicons/apple-touch-startup-image-750x1334.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="/img/favicons/apple-touch-startup-image-1334x750.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="/img/favicons/apple-touch-startup-image-1125x2436.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="/img/favicons/apple-touch-startup-image-2436x1125.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="/img/favicons/apple-touch-startup-image-1170x2532.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="/img/favicons/apple-touch-startup-image-2532x1170.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="/img/favicons/apple-touch-startup-image-1179x2556.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="/img/favicons/apple-touch-startup-image-2556x1179.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/img/favicons/apple-touch-startup-image-828x1792.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="/img/favicons/apple-touch-startup-image-1792x828.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="/img/favicons/apple-touch-startup-image-1242x2688.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="/img/favicons/apple-touch-startup-image-2688x1242.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="/img/favicons/apple-touch-startup-image-1242x2208.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="/img/favicons/apple-touch-startup-image-2208x1242.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="/img/favicons/apple-touch-startup-image-1284x2778.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="/img/favicons/apple-touch-startup-image-2778x1284.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="/img/favicons/apple-touch-startup-image-1290x2796.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="/img/favicons/apple-touch-startup-image-2796x1290.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/img/favicons/apple-touch-startup-image-1488x2266.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="/img/favicons/apple-touch-startup-image-2266x1488.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/img/favicons/apple-touch-startup-image-1536x2048.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="/img/favicons/apple-touch-startup-image-2048x1536.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/img/favicons/apple-touch-startup-image-1620x2160.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="/img/favicons/apple-touch-startup-image-2160x1620.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 820px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/img/favicons/apple-touch-startup-image-1640x2160.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 820px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="/img/favicons/apple-touch-startup-image-2160x1640.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/img/favicons/apple-touch-startup-image-1668x2388.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="/img/favicons/apple-touch-startup-image-2388x1668.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/img/favicons/apple-touch-startup-image-1668x2224.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="/img/favicons/apple-touch-startup-image-2224x1668.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="/img/favicons/apple-touch-startup-image-2048x2732.png">
+        <link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="/img/favicons/apple-touch-startup-image-2732x2048.png">
+        <meta name="msapplication-TileColor" content="#000">
+        <meta name="msapplication-TileImage" content="/img/favicons/mstile-144x144.png">
+        <meta name="msapplication-config" content="/img/favicons/browserconfig.xml">
+        <link rel="yandex-tableau-widget" href="/img/favicons/yandex-browser-manifest.json">
+        <title>
+            PDF Image
+        </title>
+    </head>
+    <body >
+        <div class="container">
+            <div class="row mt-2 mt-md-5">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="/">PDF Image</a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link <?= $page === 'create' ? 'active' : '' ?>" href="/create/"><?= $piBs->trans('image-to-pdf') ?></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link <?= $page === 'merge' ? 'active' : '' ?>" href="/merge/"><?= $piBs->trans('pdf-to-pdf') ?></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link <?= $page === 'image' ? 'active' : '' ?>" href="/image/"><?= $piBs->trans('pdf-to-image') ?></a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <?= $piBs->trans('language') ?>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item" href="#" onclick="javascript:setCookie('lang', 'en', 365);window.location.reload();return false;"><?= $piBs->trans('english') ?></a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#" onclick="javascript:setCookie('lang', 'de', 365);window.location.reload();return false;"><?= $piBs->trans('german') ?></a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+
+                <div class="col-12 mt-3">
+                    <?php
+                        if (file_exists(PDFIMAGE_VIEW . $page . '.phtml')) {
+                            require_once PDFIMAGE_VIEW . $page . '.phtml';
+                        } else {
+                            require_once PDFIMAGE_VIEW . 'error.phtml';
+                        }
+                    ?>
+                </div>
+
+                <div class="col-12 text-end mt-3 mb-5">
+                    <a href="https://github.com/CodelineRed/pdf-image" target="_blank" class="link-underline link-underline-opacity-0"><i class="fa-brands fa-github"></i> GitHub</a> |
+                    Version <?= Utility::getVersion(); ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">PDF Image</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="list-group">
+                    <a href="/" class="list-group-item list-group-item-action <?= $page === 'index' ? 'active' : '' ?>"><?= $piBs->trans('home') ?></a>
+                    <a href="/create/" class="list-group-item list-group-item-action <?= $page === 'create' ? 'active' : '' ?>"><?= $piBs->trans('image-to-pdf') ?></a>
+                    <a href="/merge/" class="list-group-item list-group-item-action <?= $page === 'merge' ? 'active' : '' ?>"><?= $piBs->trans('pdf-to-pdf') ?></a>
+                    <a href="/image/" class="list-group-item list-group-item-action <?= $page === 'image' ? 'active' : '' ?>"><?= $piBs->trans('pdf-to-image') ?></a>
+                    <a class="list-group-item list-group-item-action disabled" aria-disabled="true"><?= $piBs->trans('language') ?></a>
+                    <a href="#" class="list-group-item list-group-item-action" onclick="javascript:setCookie('lang', 'en', 365);window.location.reload();return false;"><?= $piBs->trans('english') ?></a>
+                    <a href="#" class="list-group-item list-group-item-action" onclick="javascript:setCookie('lang', 'de', 365);window.location.reload();return false;"><?= $piBs->trans('german') ?></a>
+                </div>
+            </div>
+        </div>
+        <script src="/js/bootstrap.bundle.min.js?v=5.3.3"></script>
+        <script src="/js/fontawesome.min.js?v=6.6.0"></script>
+        <script src="/js/brands.min.js?v=6.6.0"></script>
+    </body>
+</html>

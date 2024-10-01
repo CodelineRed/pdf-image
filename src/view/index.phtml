@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-12">
+        <div class="row justify-content-evenly">
+            <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+                <div class="card">
+                    <a href="/create/">
+                        <img src="img/image-to-pdf.svg" class="card-img-top img-fluid" alt="...">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $piBs->trans('image-to-pdf'); ?></h5>
+                        <p class="card-text"><?= $piBs->trans('image-to-pdf-card'); ?></p>
+                        <a href="/create/" class="btn btn-primary"><?= $piBs->trans('open-page'); ?></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-xl-3 mt-3 mt-sm-0">
+                <div class="card">
+                    <a href="/merge/">
+                        <img src="img/pdf-to-pdf.svg" class="card-img-top img-fluid" alt="...">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $piBs->trans('pdf-to-pdf'); ?></h5>
+                        <p class="card-text"><?= $piBs->trans('pdf-to-pdf-card'); ?></p>
+                        <a href="/merge/" class="btn btn-primary"><?= $piBs->trans('open-page'); ?></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-xl-3 mt-3 mt-md-0">
+                <div class="card">
+                    <a href="/image/">
+                        <img src="img/pdf-to-image.svg" class="card-img-top img-fluid" alt="...">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $piBs->trans('pdf-to-image'); ?></h5>
+                        <p class="card-text"><?= $piBs->trans('pdf-to-image-card'); ?></p>
+                        <a href="/image/" class="btn btn-primary"><?= $piBs->trans('open-page'); ?></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
