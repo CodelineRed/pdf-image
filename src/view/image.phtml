@@ -1,0 +1,41 @@
+<?php
+use PdfImage\Utility;
+
+$hasAllExts = true;
+$colClass = 'col-12 col-lg-6';
+
+if (!extension_loaded('imagick')) {
+    $hasAllExts = false;
+    $colClass .= ' align-content-center';
+}
+
+if (!extension_loaded('zip')) {
+    $hasAllExts = false;
+    $colClass .= ' align-content-center';
+}
+?>
+
+<div class="row">
+    <div class="col-12 col-lg-6">
+        <?= $piBs->trans('page-image', ['#PAGES#' => PDFIMAGE_ENV === 'prod' ? $piBs->trans('max-pages') : '']); ?>
+    </div>
+    <div class="<?= $colClass; ?>">
+        <?php
+        if (!extension_loaded('imagick')) {
+            echo $piBs->trans('enable-extension', ['#EXT#' => 'imagick']);
+        }
+
+        if (!extension_loaded('zip')) {
+            echo $piBs->trans('enable-extension', ['#EXT#' => 'zip']);
+        }
+
+        if ($hasAllExts) {
+            echo Utility::renderForm($form);
+        }
+
+        if (count($form->getErrors(true))) {
+            echo $piBs->trans('merge-error');
+        }
+        ?>
+    </div>
+</div>

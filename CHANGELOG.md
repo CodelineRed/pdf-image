@@ -6,7 +6,56 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.2.0]
+## [2.0.0] - 2024-10-03
+### Added
+- setasign/fpdi 2.6
+- symfony/config 7.1
+- symfony/form 7.1
+- symfony/http-foundation 7.1
+- symfony/mime 7.1
+- symfony/security-csrf 7.1
+- symfony/translation 7.1
+- symfony/validator 7.1
+- tecnickcom/tcpdf 6.7
+- @fortawesome/fontawesome-free 6.6
+- bootstrap 5.3
+- [`public`](https://github.com/CodelineRed/pdf-image/blob/main/public)
+- [`Form/FormAbstract.php`](https://github.com/CodelineRed/pdf-image/blob/main/src/Form/FormAbstract.php)
+- [`Form/TokenType.php`](https://github.com/CodelineRed/pdf-image/blob/main/src/Form/TokenType.php)
+- [`lang/de.json`](https://github.com/CodelineRed/pdf-image/blob/main/src/lang/de.json)
+- [`lang/en.json`](https://github.com/CodelineRed/pdf-image/blob/main/src/lang/en.json)
+- [`src/Utility.php`](https://github.com/CodelineRed/pdf-image/blob/main/src/Utility.php)
+- [`composer.lock`](https://github.com/CodelineRed/pdf-image/blob/main/composer.lock)
+- [`package.json`](https://github.com/CodelineRed/pdf-image/blob/main/package.json)
+- [`package-lock.json`](https://github.com/CodelineRed/pdf-image/blob/main/package-lock.json)
+- [`postinstall.js`](https://github.com/CodelineRed/pdf-image/blob/main/postinstall.js)
+- [`constant.dist.php`](https://github.com/CodelineRed/pdf-image/blob/main/src/config/constant.dist.php)
+
+### Changed
+- application to [`src`](https://github.com/CodelineRed/pdf-image/blob/main/src)
+- `Form/PdfCreate.php` to [`Form/CreateForm.php`](https://github.com/CodelineRed/pdf-image/blob/main/src/Form/CreateForm.php)
+- `Form/PdfImage.php` to [`Form/ImageForm.php`](https://github.com/CodelineRed/pdf-image/blob/main/src/Form/ImageForm.php)
+- `Form/PdfMerge.php` to [`Form/MergeForm.php`](https://github.com/CodelineRed/pdf-image/blob/main/src/Form/MergeForm.php)
+- `css/website.css` to [`css/styles.css`](https://github.com/CodelineRed/pdf-image/blob/main/public/css/styles.css)
+- `layouts/website.phtml` to [`layout/derfault.phtml`](https://github.com/CodelineRed/pdf-image/blob/main/src/view/layout/default.phtml)
+- [`views/create.phtml`](https://github.com/CodelineRed/pdf-image/blob/main/src/view/image.phtml)
+- [`views/merge.phtml`](https://github.com/CodelineRed/pdf-image/blob/main/src/view/image.phtml)
+- [`views/index.phtml`](https://github.com/CodelineRed/pdf-image/blob/main/src/view/image.phtml)
+- [`src/Bootstrap.php`](https://github.com/CodelineRed/pdf-image/blob/main/src/Bootstrap.php)
+- [`screenshots`](https://github.com/CodelineRed/pdf-image/blob/main/screenshots)
+- [`public/.htaccess`](https://github.com/CodelineRed/pdf-image/blob/main/public/.htaccess)
+- [`public/index.php`](https://github.com/CodelineRed/pdf-image/blob/main/public/index.php)
+- [`.gitignore`](https://github.com/CodelineRed/pdf-image/blob/main/.gitignore)
+- [`docker-compose.yml`](https://github.com/CodelineRed/pdf-image/blob/main/docker-compose.yml)
+- [`Dockerfile`](https://github.com/CodelineRed/pdf-image/blob/main/Dockerfile)
+- [`README.md`](https://github.com/CodelineRed/pdf-image/blob/main/README.md)
+
+### Removed
+- Zend Framework
+- constant.php
+- wipe.php
+
+## [1.2.0] - 2023-09-10
 ### Added
 - [`controllers/ImageController.php`](https://github.com/CodelineRed/pdf-image/blob/main/application/controllers/ImageController.php)
 - [`forms/PdfImage.php`](https://github.com/CodelineRed/pdf-image/blob/main/application/forms/PdfImage.php)
@@ -16,9 +65,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - [`forms/PdfCreate.php`](https://github.com/CodelineRed/pdf-image/blob/main/application/forms/PdfCreate.php)
 - [`forms/PdfMerge.php`](https://github.com/CodelineRed/pdf-image/blob/main/application/forms/PdfMerge.php)
-- [`views/create.phtml`](https://github.com/CodelineRed/pdf-image/blob/main/application/views/image.phtml)
-- [`views/merge.phtml`](https://github.com/CodelineRed/pdf-image/blob/main/application/views/image.phtml)
-- [`views/index.phtml`](https://github.com/CodelineRed/pdf-image/blob/main/application/views/image.phtml)
+- [`views/create.phtml`](https://github.com/CodelineRed/pdf-image/blob/main/application/views/create.phtml)
+- [`views/merge.phtml`](https://github.com/CodelineRed/pdf-image/blob/main/application/views/merge.phtml)
+- [`views/index.phtml`](https://github.com/CodelineRed/pdf-image/blob/main/application/views/index.phtml)
 - [`application/Bootstrap.php`](https://github.com/CodelineRed/pdf-image/blob/main/application/Bootstrap.php)
 - [`css/website.css`](https://github.com/CodelineRed/pdf-image/blob/main/files/css/website.css)
 - [`screenshots`](https://github.com/CodelineRed/pdf-image/blob/main/screenshots)

@@ -1,16 +1,4 @@
-/files/img/temp/*
-/files/pdf/create/*
-/files/pdf/image/*
-/files/pdf/input/*
-/files/pdf/merge/*
-/files/pdf/source/*
-!/files/img/temp/.gitkeep
-!/files/pdf/create/.gitkeep
-!/files/pdf/image/.gitkeep
-!/files/pdf/input/.gitkeep
-!/files/pdf/merge/.gitkeep
-!/files/pdf/source/.gitkeep
-composer.lock
+src/config/constant.php
 
 # Created by https://www.toptal.com/developers/gitignore/api/node,linux,macos,windows,composer,netbeans,phpstorm,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,linux,macos,windows,composer,netbeans,phpstorm,visualstudiocode
