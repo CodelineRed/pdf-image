@@ -1,7 +1,7 @@
 {
     "name": "pdf-image",
-    "version": "2.0.0-dev",
-    "commitDate": "2024-09-29T18:00:00+02:00",
+    "version": "2.0.0",
+    "commitDate": "2024-10-03T18:30:00+02:00",
     "description": "Converts uploaded images to PDF, merges 2 PDF files to 1 or converts PDF to image",
     "type": "module",
     "keywords": ["tcpdf", "symfony", "pdf", "image", "convert", "merge", "create"],
@@ -27,8 +27,10 @@
         "bootstrap": "^5.3.3"
     },
     "scripts": {
-        "docker-build": "docker-compose build && docker-compose up -d && start http://localhost:7708",
-        "docker-website": "start http://localhost:7708",
+        "docker-build-win": "docker-compose build && docker-compose up -d && start http://localhost:7708",
+        "docker-build-uinix": "docker-compose build && docker-compose up -d && xdg-open http://localhost:7708",
+        "docker-website-win": "start http://localhost:7708",
+        "docker-website-unix": "xdg-open http://localhost:7708",
         "postinstall": "node postinstall.js"
     }
 }

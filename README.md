@@ -62,8 +62,10 @@ curl -L -o pi-main.zip https://github.com/CodelineRed/pdf-image/archive/main.zip
 Open console on your OS and navigate to the place where you want to install the project.
 
 Unix
+- Start Docker `systemctl docker start`
+- Copy and run commands below
 ```shell
-systemctl docker start && docker run --rm --interactive --tty --volume $PWD:/app composer create-project --ignore-platform-reqs codelinered/pdf-image && cd pdf-image && docker-compose build && docker-compose up -d && xdg-open http://localhost:7708
+docker run --rm --interactive --tty --volume $PWD:/app composer create-project --ignore-platform-reqs codelinered/pdf-image && cd pdf-image && docker-compose build && docker-compose up -d && xdg-open http://localhost:7708
 ```
 
 Windows 10+
