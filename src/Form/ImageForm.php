@@ -50,6 +50,9 @@ class ImageForm extends FormAbstract
                     'newLine' => true,
                     'wrapperClass' => 'col-12 mt-3',
                     'inputClass' => 'form-control',
+                    'extAttr' => [
+                        'accept' => 'application/pdf',
+                    ]
                 ],
             ])
             ->add('_token', TokenType::class, [

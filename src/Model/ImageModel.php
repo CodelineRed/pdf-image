@@ -78,10 +78,10 @@ class ImageModel
                 }
             } catch (\Exception $e) {
                 if (PDFIMAGE_ENV === 'dev') {
-                    $form->get('file1')->addError(new FormError($e->getMessage()));
+                    $form->get('pdf')->addError(new FormError($e->getMessage()));
                 }
 
-                $form->get('file1')->addError(new FormError($piBs->trans('not-usable', ['#FILE#' => $data['file1']['name']])));
+                $form->get('pdf')->addError(new FormError($piBs->trans('not-usable', ['#FILE#' => $data['pdf']['name']])));
             }
 
             $zip->close();
@@ -105,8 +105,6 @@ class ImageModel
             if (is_readable($zipPath)) {
                 unlink($zipPath);
             }
-
-            die();
         }
     }
 }

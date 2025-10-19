@@ -10,5 +10,5 @@ $form = (new ImageForm())->getForm();
 
 if ($form->isSubmitted() && $form->isValid()) {
     ImageModel::generateZip($form);
-    // Utility::dunp($form->getData);
+    // Utility::dunp($form->getData());
 }

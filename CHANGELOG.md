@@ -6,6 +6,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.0] - 2025-10-19
+### Added
+- "extAttr" for getInput() in [`src/Utility.php`](https://github.com/CodelineRed/pdf-image/blob/main/src/Utility.php)
+- "extAttr" in [`Form/CreateForm.php`](https://github.com/CodelineRed/pdf-image/blob/main/src/Form/CreateForm.php)
+- "extAttr" in [`Form/ImageForm.php`](https://github.com/CodelineRed/pdf-image/blob/main/src/Form/ImageForm.php)
+- "extAttr" in [`Form/MergeForm.php`](https://github.com/CodelineRed/pdf-image/blob/main/src/Form/MergeForm.php)
+
+### Changed
+- renderForm() in [`src/Utility.php`](https://github.com/CodelineRed/pdf-image/blob/main/src/Utility.php)
+- setasign/fpdi v2.6.1 to v2.6.4
+- symfony/config v7.1.1 to v7.3.4
+- symfony/form v7.1.5 to v7.3.4
+- symfony/http-foundation v7.1.5 to v7.3.4
+- symfony/mime v7.1.5 to v7.3.4
+- symfony/security-csrf v7.1.1 to v7.3.0
+- symfony/translation v7.1.5 to v7.3.4
+- symfony/validator v7.1.5 to v7.3.4
+- tecnickcom/tcpdf 6.7.5 to 6.10.0
+- @fortawesome/fontawesome-free 6.6.0 to 6.7.2
+- bootstrap 5.3.3 to 5.3.8
+
+### Fixed
+- [`Model/ImageModel.php`](https://github.com/CodelineRed/pdf-image/blob/main/src/Model/ImageModel.php)
+
 ## [2.0.0] - 2024-10-03
 ### Added
 - setasign/fpdi 2.6

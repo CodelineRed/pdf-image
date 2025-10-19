@@ -32,12 +32,20 @@ class Utility {
      * @param bool $isReadonly [optional]
      * @return string
      */
-    public static function getInput(string $type, string $id, string $name, string $value, string $class = '', bool $isChecked = false, bool $isDisabled = false, bool $isReadonly = false): string
+    public static function getInput(string $type, string $id, string $name, string $value, string $class = '', bool $isChecked = false, bool $isDisabled = false, bool $isReadonly = false, $extAttr = []): string
     {
         $checked = $isChecked ? ' checked' : '';
         $disabled = $isDisabled ? ' disabled' : '';
         $readonly = $isReadonly ? ' readonly' : '';
-        return sprintf('<input type="%s" id="%s" name="%s" value="%s" class="%s"%s/>', $type, $id, $name, $value, $class, $checked . $disabled . $readonly);
+        $extendedAttributes = '';
+
+        if (count($extAttr)) {
+            foreach ($extAttr as $attr => $value) {
+                $extendedAttributes .= ' ' . $attr . '="' . $value . '"';
+            }
+        }
+
+        return sprintf('<input type="%s" id="%s" name="%s" value="%s" class="%s"%s/>', $type, $id, $name, $value, $class, $checked . $disabled . $readonly . $extendedAttributes);
     }
 
     /**
@@ -105,6 +113,7 @@ class Utility {
             $isDisabled = !empty($attr['disabled']) ? true : false;
             $isReadonly = !empty($attr['readonly']) ? true : false;
             $isValid = $valid && count($formFiledErrors) === 0;
+            $extAttr = [];
 
             if (!empty($attr['value'])) {
                 $value = $attr['value'];
@@ -112,6 +121,10 @@ class Utility {
 
             if (!empty($attr['newLine'])) {
                 $result .= '<div class="col-12"></div>';
+            }
+
+            if (!empty($attr['extAttr'])) {
+                $extAttr = $attr['extAttr'];
             }
 
             $result .= sprintf('<div class="%s">', $attr['wrapperClass'] ?? 'col-12');
@@ -134,13 +147,13 @@ class Utility {
                     $checkClass = 'form-check' . ($isValid ? '' : ' is-invalid') . (!empty($attr['inputWrapperClass']) ? ' ' . $attr['inputWrapperClass'] : '');
                     $isChecked = $data === $choice->data;
                     $result .= sprintf('<div class="%s">', $checkClass);
-                    $result .= self::getInput('radio', $id . '_' . $choice->data, $name, $choice->value, $inputClass, $isChecked, $isDisabled, $isReadonly);
+                    $result .= self::getInput('radio', $id . '_' . $choice->data, $name, $choice->value, $inputClass, $isChecked, $isDisabled, $isReadonly, $extAttr);
                     $result .= self::getLabel($id . '_' . $choice->data, $choice->label, $labelClass);
                     $result .= '</div>';
                 }
             } else {
                 $inputClass = ($isValid ? '' : 'is-invalid') . (!empty($attr['inputClass']) ? ' ' . $attr['inputClass'] : '');
-                $result .= self::getInput($type, $id, $name, $value, $inputClass, false, $isDisabled, $isReadonly);
+                $result .= self::getInput($type, $id, $name, $value, $inputClass, false, $isDisabled, $isReadonly, $extAttr);
             }
 
             if (!$isValid) {
