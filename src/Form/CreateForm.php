@@ -74,6 +74,9 @@ class CreateForm extends FormAbstract
                     'newLine' => true,
                     'wrapperClass' => 'col-12 col-md-6 col-lg-12 col-xxl-6',
                     'inputClass' => 'form-control',
+                    'extAttr' => [
+                        'accept' => 'image/jpeg,image/png',
+                    ]
                 ],
             ])
             ->add('file2', FileType::class, [
@@ -82,6 +85,9 @@ class CreateForm extends FormAbstract
                 'attr' => [
                     'wrapperClass' => 'col-12 col-md-6 col-lg-12 col-xxl-6 mt-3 mt-md-0 mt-lg-3 mt-xxl-0',
                     'inputClass' => 'form-control',
+                    'extAttr' => [
+                        'accept' => 'image/jpeg,image/png',
+                    ]
                 ],
             ])
             ->add('file3', FileType::class, [
@@ -90,6 +96,9 @@ class CreateForm extends FormAbstract
                 'attr' => [
                     'wrapperClass' => 'col-12 col-md-6 col-lg-12 col-xxl-6 mt-3',
                     'inputClass' => 'form-control',
+                    'extAttr' => [
+                        'accept' => 'image/jpeg,image/png',
+                    ]
                 ],
             ])
             ->add('file4', FileType::class, [
@@ -98,6 +107,9 @@ class CreateForm extends FormAbstract
                 'attr' => [
                     'wrapperClass' => 'col-12 col-md-6 col-lg-12 col-xxl-6 mt-3',
                     'inputClass' => 'form-control',
+                    'extAttr' => [
+                        'accept' => 'image/jpeg,image/png',
+                    ]
                 ],
             ])
             ->add('file5', FileType::class, [
@@ -106,6 +118,9 @@ class CreateForm extends FormAbstract
                 'attr' => [
                     'wrapperClass' => 'col-12 col-md-6 col-lg-12 col-xxl-6 mt-3',
                     'inputClass' => 'form-control',
+                    'extAttr' => [
+                        'accept' => 'image/jpeg,image/png',
+                    ]
                 ],
             ])
             ->add('_token', TokenType::class, [

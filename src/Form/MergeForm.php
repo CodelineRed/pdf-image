@@ -30,6 +30,9 @@ class MergeForm extends FormAbstract
                 'attr' => [
                     'wrapperClass' => 'col-12',
                     'inputClass' => 'form-control',
+                    'extAttr' => [
+                        'accept' => 'application/pdf',
+                    ]
                 ],
             ])
             ->add('source', FileType::class, [
@@ -43,6 +46,9 @@ class MergeForm extends FormAbstract
                 'attr' => [
                     'wrapperClass' => 'col-12 mt-3',
                     'inputClass' => 'form-control',
+                    'extAttr' => [
+                        'accept' => 'application/pdf',
+                    ]
                 ],
             ])
             ->add('_token', TokenType::class, [
