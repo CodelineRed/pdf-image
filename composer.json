@@ -1,7 +1,7 @@
 {
     "name": "codelinered/pdf-image",
     "description": "Converts uploaded images to PDF, merges 2 PDF files to 1 and converts a PDF to images",
-    "version": "2.1.0-dev",
+    "version": "2.1.0",
     "keywords": ["tcpdf", "symfony", "pdf", "image", "convert", "merge", "create"],
     "homepage": "https://github.com/CodelineRed/pdf-image",
     "license": "MIT",

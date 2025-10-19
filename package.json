@@ -1,6 +1,6 @@
 {
     "name": "pdf-image",
-    "version": "2.1.0-dev",
+    "version": "2.1.0",
     "commitDate": "2025-10-19T20:00:00+02:00",
     "description": "Converts uploaded images to PDF, merges 2 PDF files to 1 and converts a PDF to images",
     "type": "module",
